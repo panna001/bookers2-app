@@ -36,6 +36,9 @@
         </li>
       <% end %>
     </header>
+    <% flash.each do |key, value| %>
+      <%= content_tag(:div, value) %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
