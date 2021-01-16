@@ -1,25 +1,16 @@
-<% if @book.errors.any? %>
-  <p><%= @book.errors.count %>個のエラーメッセージ</p>
-  <% @book.errors.full_messages.each do |message| %>
-    <p><%= message %></p>
+<%= render "layouts/error_message", model:@book %>
+<%= render "layouts/user_info", user:@user %>
+<%= render "layouts/new_book", book:@book %>
+
+
+<h1>Book detail</h1>
+<% @books.each do |book| %>
+  <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
+  <%= book.user.name %>
+  <%= book.title %>
+  <%= book.body %>
+  <% if @book.user == current_user %>
+    <%= link_to "Edit", edit_book_path(book) %>
+    <%= link_to "Destroy", book_path(book), method: :delete %>
   <% end %>
 <% end %>
-
-
-<h1>User info</h1>
-<%= attachment_image_tag @user, :profile_image, :fill, 60, 60, format: "jpg", fallback: "no_image.jpg" %>
-<p>name<%= @user.name %></p>
-<p>introduction <%= @user.profile %></p>
-<%= link_to "編集ページ（仮）", edit_user_path(@user) %>
-
-<h1>New book</h1>
-<!--↓変更必要?-->
-<%= form_with model: @book, url: books_path, local: true do |f| %>
-  <h4>Title</h4>
-  <%= f.text_field :title %>
-  <h4>Opinion</h4>
-  <%= f.text_area :body %>
-  <%= f.submit "Create Book" %>
-<% end %>
-
-

@@ -1,0 +1,6 @@
+<% if model.errors.any? %>
+  <p><%= model.errors.count %>個のエラーメッセージ</p>
+  <% model.errors.full_messages.each do |message| %>
+    <p><%= message %></p>
+  <% end %>
+<% end %>

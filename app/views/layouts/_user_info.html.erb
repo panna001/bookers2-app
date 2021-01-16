@@ -1,0 +1,6 @@
+<h1>User info</h1>
+<%= attachment_image_tag user, :profile_image, :fill, 60, 60, format: "jpg", fallback: "no_image.jpg" %>
+<p>name<%= user.name %></p>
+<p>introduction <%= user.profile %></p>
+<%= link_to "編集ページ（仮）", edit_user_path(user) %>
+

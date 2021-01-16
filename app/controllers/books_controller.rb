@@ -10,8 +10,8 @@ class BooksController < ApplicationController
     # 間違っている可能性有り　エラーは出ず。引数current_user注意
       redirect_to user_path(current_user), notice: "You have created book successfully."
     else
-      # titleの入力が再表示されない
       @user = User.find(current_user.id)
+      @books = @user.books
       render "users/show"
     end
   end
@@ -24,8 +24,23 @@ class BooksController < ApplicationController
 
   end
 
-  def destroy
+  def edit
+    @book = Book.find(params:[:id])
+  end
 
+  def update
+    @book = Book.find(params:[:id])
+    if @book.update(@book_params)
+      redirect_to user_path(current_user), notice: "You have updated book successfully."
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @book = Book.find(params:[:id])
+    @book.destroy
+    redirect_to user_path(current_user)
   end
 
   private
