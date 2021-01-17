@@ -50,10 +50,11 @@
     </header>
 
 <!--headerここまで-->
-
-    <% flash.each do |key, value| %>
-      <%= content_tag(:div, value) %>
-    <% end %>
+    <div class="text-success">
+      <% flash.each do |key, value| %>
+        <%= content_tag(:div, value) %>
+      <% end %>
+    </div>
     <%= yield %>
     <footer class="container mt-5">
       <div class="row">

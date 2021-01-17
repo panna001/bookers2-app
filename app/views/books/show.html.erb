@@ -9,14 +9,15 @@
       <h1>Book detail</h1>
       <table class="table table_striped">
           <tr>
-            <td><%= attachment_image_tag @book_detail.user, :profile_image, fallback: "no_image.jpg", size: "40x40"  %>
+            <td class="text-center">
+              <%= attachment_image_tag @book_detail.user, :profile_image, fallback: "no_image.jpg", size: "40x40"  %>
               <p><%= link_to @book_detail.user.name, user_path(@book_detail.user) %></p>
             </td>
             <td><%= link_to @book_detail.title, book_path(@book_detail) %></td>
             <td><%= @book_detail.body %></td>
             <% if @book_detail.user == current_user %>
               <td><%= link_to "Edit", edit_book_path(@book_detail), class: "btn btn-sm btn-success" %></td>
-              <td><%= link_to "Destroy", book_path(@book_detail), method: :delete, class: "btn btn-sm btn-danger" %></td>
+              <td><%= link_to "Destroy", book_path(@book_detail), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %></td>
             <% end %>
           </tr>
       </table>
