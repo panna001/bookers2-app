@@ -5,14 +5,14 @@
 <h1>Book detail</h1>
 <table>
     <tr>
-      <td><%= attachment_image_tag @bookdetail.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
-        <p><%= link_to @bookdetail.user.name, user_path(@bookdetail.user) %></p>
+      <td><%= attachment_image_tag @book_detail.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
+        <p><%= link_to @book_detail.user.name, user_path(@book_detail.user) %></p>
       </td>
-      <td><%= link_to @bookdetail.title, book_path(@bookdetail) %></td>
-      <td><%= @bookdetail.body %></td>
-      <% if @bookdetail.user == current_user %>
-        <td><%= link_to "Edit", edit_book_path(@bookdetail) %></td>
-        <td><%= link_to "Destroy", book_path(@bookdetail), method: :delete %></td>
+      <td><%= link_to @book_detail.title, book_path(@book_detail) %></td>
+      <td><%= @book_detail.body %></td>
+      <% if @book_detail.user == current_user %>
+        <td><%= link_to "Edit", edit_book_path(@book_detail) %></td>
+        <td><%= link_to "Destroy", book_path(@book_detail), method: :delete %></td>
       <% end %>
     </tr>
 </table>

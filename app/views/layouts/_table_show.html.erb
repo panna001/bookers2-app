@@ -1,0 +1,11 @@
+<tr>
+  <td><%= attachment_image_tag model.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
+    <p><%= link_to model.user.name, user_path(model.user) %></p>
+  </td>
+  <td><%= link_to model.title, book_path(model) %></td>
+  <td><%= model.body %></td>
+  <% if model.user == current_user %>
+    <td><%= link_to "Edit", edit_book_path(model) %></td>
+    <td><%= link_to "Destroy", book_path(model), method: :delete %></td>
+  <% end %>
+</tr>

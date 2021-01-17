@@ -1,8 +1,18 @@
-<h1>welcome to <i class="fas fa-book"></i>Bookers !!</h1>
-<p>
-  in <i class="fas fa-book"></i>Bookers,<br>
-  you can share and exchange your opinions , inpressions , and emotions about various books!
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-6 mx-auto">
+      <h1>welcome to <i class="fas fa-book"></i>Bookers !!</h1>
+      <p>
+        in <i class="fas fa-book"></i>Bookers,<br>
+        you can share and exchange your opinions , inpressions , and emotions about various books!
+      </p>
+      <div class="row">
+        <div class="col-10 mx-auto">
+          <%= link_to "Log in", new_user_session_path, class: "btn btn-info btn-sm btn-block mb-3" %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success btn-sm btn-block" %>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<%= link_to "Sign Up", new_user_registration_path %>
-<%= link_to "Log in", new_user_session_path %>
+</div>
