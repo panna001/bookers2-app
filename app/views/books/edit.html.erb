@@ -1,2 +1,9 @@
 <h1>Editing Book</h1>
-<%= render "layouts/edit", model:@book %>
+<%= form_with model: @book, local: true do |f| %>
+  <%= render "layouts/error_message", model: f.object %>
+  <label for="inputName">Title</label>
+  <%= f.text_field :title, autofocus: true, id: "inputTitle", placeholder: "タイトル" %>
+  <label for="inputBody">Opinion</label>
+  <%= f.text_area :body, placeholder: "説明" %>
+  <%= f.submit "Update Book" %>
+<% end %>

@@ -2,15 +2,17 @@
 <%= render "layouts/user_info", user:@user %>
 <%= render "layouts/new_book", book:@book %>
 
-
-<h1>Book detail</h1>
-<% @books.each do |book| %>
-  <%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
-  <%= book.user.name %>
-  <%= book.title %>
-  <%= book.body %>
-  <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(book) %>
-    <%= link_to "Destroy", book_path(book), method: :delete %>
+<h1>Books</h1>
+<table>
+  <% @books.each do |book| %>
+    <tr>
+      <td><%= attachment_image_tag book.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %></td>
+      <td><%= link_to book.title, book_path(book) %></td>
+      <td><%= book.body %></td>
+      <% if @book.user == current_user %>
+        <td><%= link_to "Edit", edit_book_path(book) %></td>
+        <td><%= link_to "Destroy", book_path(book), method: :delete %></td>
+      <% end %>
+    </tr>
   <% end %>
-<% end %>
+</table>
