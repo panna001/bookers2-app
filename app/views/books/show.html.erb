@@ -5,7 +5,9 @@
 <h1>Book detail</h1>
 <table>
     <tr>
-      <td><%= attachment_image_tag @bookdetail.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %></td>
+      <td><%= attachment_image_tag @bookdetail.user, :profile_image, :fill, 60, 60, fallback: "no_image.jpg"  %>
+        <p><%= link_to @bookdetail.user.name, user_path(@bookdetail.user) %></p>
+      </td>
       <td><%= link_to @bookdetail.title, book_path(@bookdetail) %></td>
       <td><%= @bookdetail.body %></td>
       <% if @bookdetail.user == current_user %>
