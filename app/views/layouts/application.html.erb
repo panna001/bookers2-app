@@ -12,9 +12,9 @@
 <!--headここまで-->
 
   <body>
-    <header class="mb-3">
+    <header>
       <nav class="navbar navbar-expand-lg bg-dark">
-        <div class="container">
+        <div class ="container">
           <div class="navbar-brand"><%= link_to "Bookers", root_path, class: "nav-link text-white" %></div>
           <ul class="navbar-nav">
           <% if user_signed_in? %>
@@ -45,7 +45,7 @@
               <% end %>
             </li>
             <li>
-              <%= link_to homes_about_path, class: "nav-link text-white" do %>
+              <%= link_to home_about_path, class: "nav-link text-white" do %>
                 <i class="fas fa-link"></i> About
               <% end %>
             </li>
@@ -66,16 +66,18 @@
     </header>
 
 <!--headerここまで-->
-    <div class="text-success">
+    <div class="text-success mb-3">
       <% flash.each do |key, value| %>
         <%= content_tag(:div, value) %>
       <% end %>
     </div>
     <%= yield %>
-    <footer class="container mt-5">
-      <div class="row">
-        <div class="mx-auto">
-          <p>CopyRight Infratop.inc</p>
+    <footer>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="mx-auto">
+            <p>CopyRight Infratop.inc</p>
+          </div>
         </div>
       </div>
     </footer>

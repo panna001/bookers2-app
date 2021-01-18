@@ -29,13 +29,13 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :profile_image, :profile)
+    params.require(:user).permit(:name, :profile_image, :introduction)
   end
 
   def correct_user
     @user = User.find(params[:id])
     unless @user == current_user
-    redirect_to root_path
+    redirect_to user_path(current_user)
     end
 
   end

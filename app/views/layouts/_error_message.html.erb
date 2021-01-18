@@ -1,5 +1,5 @@
 <% if model.errors.any? %>
-  <p><%= model.errors.count %>個のエラーメッセージ</p>
+  <p><%= model.errors.count %>error prohibited this obj from being saved:</p>
   <% model.errors.full_messages.each do |message| %>
     <p><%= message %></p>
   <% end %>
