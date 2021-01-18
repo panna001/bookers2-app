@@ -41,8 +41,12 @@ class BooksController < ApplicationController
 
   def destroy
     @book = Book.find(params[:id])
-    @book.destroy
-    redirect_to user_path(current_user)
+    if @book.destroy
+      redirect_to user_path(current_user)
+    else
+      # ブラウザバックで戻った際にエラー表示が出る為以下追記
+      redirect_to user_path(current_user)
+    end
   end
 
   private
