@@ -27,6 +27,7 @@
             <% else %>
               <td><%= link_to "♥#{book.favorites.count}", book_favorites_path(book), class: "text-blue", method: :post %></td>
             <% end %>
+            <td><%= "コメント数：#{book.book_comments.count}" %></td>
           </tr>
         <% end %>
       </table>
