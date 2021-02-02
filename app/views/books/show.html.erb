@@ -20,6 +20,7 @@
             <% else %>
               <td><%= link_to "♥︎#{@book_detail.favorites.count}", book_favorites_path(@book_detail), class: "text-blue", method: :post %></td>
             <% end %>
+            <td><%= "コメント数：#{@book_detail.book_comments.count}" %></td>
             <% if @book_detail.user == current_user %>
               <td><%= link_to "Edit", edit_book_path(@book_detail), class: "btn btn-sm btn-success" %></td>
               <td><%= link_to "Destroy", book_path(@book_detail), method: :delete, data: {confirm: "本当に削除しますか？"}, class: "btn btn-sm btn-danger" %></td>
