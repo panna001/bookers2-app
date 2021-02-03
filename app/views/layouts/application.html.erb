@@ -63,23 +63,24 @@
           </ul>
         </div>
       </nav>
-
-      <div>
-        <%= form_with scope: :search, url: search_path, method: :get, local: true do |f| %>
-          <%= f.text_field :text %>
-          <%= f.select :model, ["User","Book" ] %>
-          <%= f.select :conditions, ["完全一致","部分一致"] %>
-          <%= f.submit "検索" %>
-          <% end %>
+      <div class="text-success mb-3">
+        <% flash.each do |key, value| %>
+          <%= content_tag(:div, value) %>
+        <% end %>
       </div>
+      <% if user_signed_in? %>
+        <div class="text-center">
+          <%= form_with scope: :search, url: search_path, method: :get, local: true do |f| %>
+            <%= f.text_field :key_word %>
+            <%= f.select :model, ["User","Book" ] %>
+            <%= f.select :condition, ["完全一致", "前方一致", "後方一致", "部分一致"] %>
+            <%= f.submit "検索" %>
+            <% end %>
+        </div>
+      <% end %>
     </header>
 
 <!--headerここまで-->
-    <div class="text-success mb-3">
-      <% flash.each do |key, value| %>
-        <%= content_tag(:div, value) %>
-      <% end %>
-    </div>
     <%= yield %>
     <footer>
       <div class="container mt-5">

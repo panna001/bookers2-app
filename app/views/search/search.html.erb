@@ -1,3 +1,8 @@
-<h2>Book search for <%= @model %></h2>
-
-<%= render "users/index", users:@users %>
+<div class="container">
+  <h2><%= "#{@model}s search for '#{@key_word}'" %></h2>
+  <% if @model == "User" && @users.present? %>
+    <%= render "users/index", users:@users %>
+  <% elsif @model == "Book" && @books.present? %>
+    <%= render "books/index", books:@books %>
+  <% end %>
+</div>
