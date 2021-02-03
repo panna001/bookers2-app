@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       get :follower
     end
     collection do
-      get :seach
-      
+      get :search
+    end
   end
   resources :books, only: [:index, :show, :create, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]

@@ -1,5 +1,6 @@
 class SearchController < ApplicationController
-  def search
-    
+  def index
+
+
   end
 end
