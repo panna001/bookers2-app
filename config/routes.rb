@@ -4,7 +4,13 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "home#top"
   resources :users, only: [:index, :show, :edit, :update] do
-    get :following, :follower
+    member do
+      get :following
+      get :follower
+    end
+    collection do
+      get :seach
+      
   end
   resources :books, only: [:index, :show, :create, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
