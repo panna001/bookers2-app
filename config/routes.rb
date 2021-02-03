@@ -8,9 +8,6 @@ Rails.application.routes.draw do
       get :following
       get :follower
     end
-    collection do
-      get :search
-    end
   end
   resources :books, only: [:index, :show, :create, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
@@ -18,4 +15,5 @@ Rails.application.routes.draw do
   end
   post "follow/:id" => "relationships#follow", as: "follow"
   post "unfollow/:id" => "relationships#unfollow", as: "unfollow"
+  get "search" =>"search#search", as: "search"
 end

@@ -65,10 +65,10 @@
       </nav>
 
       <div>
-        <%= form_with url: search_users_path, method: :get, local: true do |f| %>
-          <%= f.text_field :search %>
-          <%= f.select :search, ["User","Book" ] %>
-          <%= f.select :search, ["完全一致","部分一致"] %>
+        <%= form_with scope: :search, url: search_path, method: :get, local: true do |f| %>
+          <%= f.text_field :text %>
+          <%= f.select :model, ["User","Book" ] %>
+          <%= f.select :conditions, ["完全一致","部分一致"] %>
           <%= f.submit "検索" %>
           <% end %>
       </div>
