@@ -5,11 +5,8 @@ class BooksController < ApplicationController
     @book = Book.new(book_params)
     @book.user_id = current_user.id
     if @book.save
-    # 間違っている可能性有り　エラーは出ず。引数current_user注意
       redirect_to book_path(@book), notice: "You have created book successfully."
     else
-      # @user = User.find(current_user.id)
-      # @books = @user.books
       @books = Book.all
       @user = User.find(current_user.id)
       render "books/index"
