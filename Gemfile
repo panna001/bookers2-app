@@ -67,3 +67,6 @@ gem 'jquery-rails'
 gem 'font-awesome-sass', '~> 5.13'
 gem 'pry-byebug'
 gem 'jp_prefecture'
+group :development do
+  gem "letter_opener"
+end
