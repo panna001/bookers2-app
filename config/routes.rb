@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'chats/:id' => "chats#show", as: "chat"
+  resources :chats, only: [:create] 
   get 'home/about'
   devise_for :users
   root to: "home#top"
